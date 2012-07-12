@@ -3,6 +3,9 @@ DESCRIÇÃO
 ----------------------------------------------------------------------------------
 
 Este aplicativo gera as configurações de favoritos do Enigma2.
+Ele lê a base de dados de canais do enigma2 (/etc/enigma2/lamedb) e gera as
+configurações de favoritos com base em um conjunto de regras que podem ser
+facilmente personalizadas.
 
 
 ----------------------------------------------------------------------------------
