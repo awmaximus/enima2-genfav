@@ -1,5 +1,4 @@
 #!/bin/sh
-# VERSION 1.1
 
 # CHANGELOG
 # * Version 1.0
@@ -7,6 +6,8 @@
 # * Version 1.0.1
 #	- Correcao na geracao do favorito que contem todos os canais
 #	- Ignorando espaco inicial e final no nome dos favoritos e filtros
+# * Version 1.1
+#	- O favorito que contem todos os canais agora inclui o numero do satelite a qual o canal pertence
 
 
 
@@ -86,6 +87,7 @@ checkexclude ()
 mkservice ()
 {
 	CHANNEL="$1"
+	NAME="$2"
 
 	CHANNELCODE1=$(echo $CHANNEL | cut -d: -f1 | sed 's/^0*//g' | tr 'a-z' 'A-Z')
 
@@ -101,7 +103,12 @@ mkservice ()
 		CHANNELTYPE=19
 	fi
 
-	SERVICE="#SERVICE 1:0:$CHANNELTYPE:$CHANNELCODE1:$CHANNELCODE2:1:$CHANNELTP:0:0:0:"
+	if [ "$NAME" == "" ]; then
+		SERVICE="#SERVICE 1:0:$CHANNELTYPE:$CHANNELCODE1:$CHANNELCODE2:1:$CHANNELTP:0:0:0:\n"
+	else
+		SERVICE="#SERVICE 1:0:$CHANNELTYPE:$CHANNELCODE1:$CHANNELCODE2:1:$CHANNELTP:0:0:0::$NAME\n#DESCRIPTION $NAME\n"
+	fi
+
 }
 
 genfavall ()
@@ -124,17 +131,19 @@ genfavall ()
 		cat "$TMPDIR/sat-$SAT.txt" | sort -t: -k7 | grep -E '.*:.*:.*:.*:.*:.*:' | grep -Eiv "$EXCLUDE" > $TMPDIR/genfavall-$SAT.txt
 	fi
 
-	for CHANNEL in $(cat "$TMPDIR/genfavall-$SAT.txt" | cut -d: -f1-6 ); do
-		mkservice "$CHANNEL"
+	while read REG; do
+		CHANNEL="$(echo "$REG" | cut -d: -f1-6)"
+		NAME="$(echo "$REG" | cut -d: -f7)"
+		mkservice "$CHANNEL" "$NAME ($SAT)"
 
 		if [ "$CHANNELTYPE" == "1" ]; then
-			echo "$SERVICE" >> $OUTDIR/userbouquet.favourites.tv
+			printf "$SERVICE" >> $OUTDIR/userbouquet.favourites.tv
 		elif [ "$CHANNELTYPE" == "2" ]; then
-			echo "$SERVICE" >> $OUTDIR/userbouquet.favourites.radio
+			printf "$SERVICE" >> $OUTDIR/userbouquet.favourites.radio
 		else
-			echo "$SERVICE" >> $OUTDIR/userbouquet.favourites.tv
+			printf "$SERVICE" >> $OUTDIR/userbouquet.favourites.tv
 		fi
-	done
+	done < "$TMPDIR/genfavall-$SAT.txt"
 	
 	log "   -> Gerado favorito com $(wc -l $OUTDIR/userbouquet.favourites.tv | cut -d' ' -f1) canais de TV"
 	log "   -> Gerado favorito com $(wc -l $OUTDIR/userbouquet.favourites.radio | cut -d' ' -f1) canais de Radio"
@@ -152,7 +161,7 @@ genfav ()
 	
 	for CHANNEL in $(cat $TMPDIR/parserule-$SAT-$(echo $FAV | tr ' ' '_')-channel.txt | cut -d: -f1-6); do
 		mkservice "$CHANNEL"
-		echo "$SERVICE" >> $OUTDIR/userbouquet.$SAT.$(echo $FAV | tr ' ' '_' | tr 'A-Z' 'a-z').tv
+		printf "$SERVICE" >> $OUTDIR/userbouquet.$SAT.$(echo $FAV | tr ' ' '_' | tr 'A-Z' 'a-z').tv
 	done
 
 	SERVICE=""
