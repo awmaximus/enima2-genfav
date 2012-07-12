@@ -10,6 +10,8 @@
 #	- O favorito que contem todos os canais agora inclui o numero do satelite a qual o canal pertence
 # * Version 1.2
 #	- Incluido verificacao da existencia do arquivo de regras
+# * Version 1.3
+#	- Incluido funcionalidade de recarregar os favoritos automaticamente
 
 LAMEFILE=/etc/enigma2/lamedb
 RULES=/etc/enigma2/genfav_rules.txt
@@ -252,5 +254,9 @@ for SAT in $SATS; do
 	rules $SAT
 	log "----------------------------------------"
 done
+
+log "### Recarregando os favoritos"
+wget -qO - http://127.0.0.1/web/servicelistreload?mode=1 &>/dev/null
+wget -qO - http://127.0.0.1/web/servicelistreload?mode=2 &>/dev/null
 
 log "### Finalizado em $(date)"
