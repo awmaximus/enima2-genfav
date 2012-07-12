@@ -35,6 +35,15 @@ MODO DE USO
 5) Execute o aplicativo para que ele crie os favoritos baseados nas regras
    contidas no arquivo "genfav_rules.txt": "/home/root/genfav.sh"
 
+Feito os procedimento acima, em caso de mudança nas TPs, faça:
+
+0) FAÇA BACKUP DA PASTA "/etc/enigma2"
+1) Efetue, se necessário, as alterações nas configurações do satellite.xml e
+   reinicie o aparelho.
+2) Na interface do enigma2 (via controle remoto), execute um scan completo de
+   canais para cada satelite que se tenha apontamento
+3) Execute o aplicativo para que ele crie os favoritos baseados nas regras
+   contidas no arquivo "genfav_rules.txt": "/home/root/genfav.sh"
 
 ----------------------------------------------------------------------------------
 COMO PERSONALIZAR AS REGRAS
