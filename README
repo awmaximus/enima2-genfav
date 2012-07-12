@@ -35,6 +35,7 @@ MODO DE USO
 5) Execute o aplicativo para que ele crie os favoritos baseados nas regras
    contidas no arquivo "genfav_rules.txt": "/home/root/genfav.sh"
 
+
 Feito os procedimento acima, em caso de mudança nas TPs, faça:
 
 0) FAÇA BACKUP DA PASTA "/etc/enigma2"
