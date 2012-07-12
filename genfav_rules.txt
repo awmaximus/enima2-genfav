@@ -1,0 +1,12 @@
+exclude=Teste*,Sudoku,Tetrix.*,Banda C,Hab EPVR,Hab PenVR,PVR,ISDB-T,TVEXEC,TVTEC
+Documentario=Animal Planet,Discovery.*,!Discovery Kids,Nat Geo Wild HD,National Geographic,The Biography Channel,The History Channel,Travel and Living Channel
+Series=A&E,AXN,Fox,Fox Life,Fox / Nat Geo HD,GNT,LIV,Sony.*,Studio Universal,Syfy,Warner.*
+Filmes=Cinemax,FX,HBO.*,I-Sat,MAX.*,MegaPix,Space.*,Telecine.*,TNT.*,Universal Channel
+Noticias=Band News,CNNe,CNNi,GloboNews,Record News
+Outros=Bem Simples,Canal Claro,Canção Nova,Comedy Central,Deutsche Welle,E!,Eurochannel,Glitz*,Loung,NBR,NHK Premium,OFF HD,Polishop,SIC,TBS,truTV,Viva,WooHoo
+Esporte=Band Alternativo,Band Sports,EPTV.*,ESPN.*,Esporte Interativo,Fox Sports,Fox Sports HD,*.Premiere.*,SporTV.*
+TV Aberta=Bandeirantes,BAND HD,Canal Brasil,Canal Rural,Futura,Globo .*,Inter TV Cabugi,RBS Porto Alegre,RedeMinas,Rede Record,RPC TV Paranaense,SBT,Terra Viva,TV.*
+Infantil=Boomerang,Cartoon Network,Discovery Kids,Disney.*,Gloob,Nick.*,Tooncast
+Adulto=For Man,Playboy TV,Sexy Hot
+Musica=Multishow.*,VH1.*
+HD=*HD,Globosat HD Alternativo
