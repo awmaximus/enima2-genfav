@@ -9,7 +9,11 @@
 # * Version 1.1
 #	- O favorito que contem todos os canais agora inclui o numero do satelite a qual o canal pertence
 
-
+LAMEFILE=/etc/enigma2/lamedb
+RULES=/etc/enigma2/genfav_rules.txt
+OUTDIR=/etc/enigma2
+TMPDIR=/tmp/genfav_tmp
+LOGFILE=$TMPDIR/genfav.log
 
 LAMEFILE=/media/dados/Dropbox/azbox/genfav/lamedb
 RULES=/media/dados/Dropbox/azbox/genfav/genfav_rules.txt
