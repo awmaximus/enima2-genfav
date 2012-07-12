@@ -31,7 +31,7 @@ MODO DE USO
 3) Copie o arquivo "genfav_rules.txt" para a pasta "/etc/enigma2"
    https://raw.github.com/awmaximus/enima2-genfav/master/genfav_rules.txt
 4) Na interface do enigma2 (via controle remoto), execute um scan completo de
-   canais
+   canais para cada satelite que se tenha apontamento
 5) Execute o aplicativo para que ele crie os favoritos baseados nas regras
    contidas no arquivo "genfav_rules.txt": "/home/root/genfav.sh"
 
