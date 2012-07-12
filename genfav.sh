@@ -4,7 +4,7 @@
 # CHANGELOG
 # * Version 1.0
 #	- Initial version
-# * Version 1.1
+# * Version 1.0.1
 #	- Correcao na geracao do favorito que contem todos os canais
 #	- Ignorando espaco inicial e final no nome dos favoritos e filtros
 
