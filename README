@@ -6,6 +6,8 @@ Este aplicativo gera as configurações de favoritos do Enigma2.
 Ele lê a base de dados de canais do enigma2 (/etc/enigma2/lamedb) e gera as
 configurações de favoritos com base em um conjunto de regras que podem ser
 facilmente personalizadas.
+Ele funciona tanto para quem aponta apenas para um satelite ou para vários
+satelites. Os favoritos são gerados para cada satelite individualmente.
 
 
 ----------------------------------------------------------------------------------
@@ -21,8 +23,10 @@ MODO DE USO
 
 0) FAÇA BACKUP DA PASTA "/etc/enigma2"
 1) Copie o arquivo "genfav.sh" para a pasta "/home/root" no enigma2.
+   https://github.com/awmaximus/enima2-genfav/raw/master/genfav.sh
 2) Dê permissão de execução a este arquivo: "chmod 700 genfav2"
 3) Copie o arquivo "genfav_rules.txt" para a pasta "/etc/enigma2"
+   https://raw.github.com/awmaximus/enima2-genfav/master/genfav_rules.txt
 4) Na interface do enigma2 (via controle remoto), execute um scan completo de
    canais
 5) Execute o aplicativo para que ele crie os favoritos baseados nas regras
@@ -49,7 +53,6 @@ Onde:
 separados por vírgula.
 Exemplo:
          Documentario=Animal Planet,Discovery.*,!Discovery Kids,Nat Geo Wild HD
-
 
 Pode-se usar caracteres curingas para que seja incluído vários canais ao mesmo
 tempo no favorito, sem a necessidade de informar todos os nomes.
@@ -82,11 +85,10 @@ Email: awmaximus@gmail.com
 TODO
 ----------------------------------------------------------------------------------
 
-* Incluir opção de gerar favoritos apenas do satelite informado
+* Incluir opção de gerar favoritos apenas do satelite informado, quando usado
+  lamedb gerado em outro aparelho por terceiros.
 * Referencia ao satelite pelo nome e não pelo número, buscando do satellite.xml
 * Melhoria no desempenho
 * Executar scan de canais automaticamente
 * Converter o script em um Plugin do enigma2 com interface gráfica
 * Futuro redesenvolvimento em Python
-
-
