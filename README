@@ -109,6 +109,7 @@ TODO
 * Incluir opção de gerar favoritos apenas do satelite informado, quando usado
   lamedb gerado em outro aparelho ou por terceiros.
 * Referencia ao satelite pelo nome e não pelo número, buscando do satellite.xml
+* Permitir renomear os canais
 * Melhoria no desempenho
 * Executar scan de canais automaticamente
 * Converter o script em um Plugin do enigma2 com interface gráfica
