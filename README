@@ -57,40 +57,7 @@ Feito os procedimento acima, em caso de mudança nas TPs, faça:
 COMO PERSONALIZAR AS REGRAS
 ----------------------------------------------------------------------------------
 
-O arquivo de regras possui a seguinte estrutura:
-
-	NOME-FAVORITO=LISTA-CANAIS
-
-Onde:
-
-*** NOME-FAVORITO ***
-
-É o nome que será dado ao favorito
-
-*** LISTA-CANAIS ***
-
-É uma lista contendo o nome dos canais que irá compor o referido favorito
-separados por vírgula.
-Exemplo:
-         Documentario=Animal Planet,Discovery.*,!Discovery Kids,Nat Geo Wild HD
-
-Pode-se usar caracteres curingas para que seja incluído vários canais ao mesmo
-tempo no favorito, sem a necessidade de informar todos os nomes.
-Exemplos:
-         Discovery.*
-         Inclui todos os canais cujo o nome começa pela palavra "Discovey"
-
-         .*HD
-         Inclui todos os canais cujo o nome termina pela palavra "HD"
-
-         !Discovery Kids
-         Exclui o canal que possui o nome informado do referido favorito
-
-Existe ainda a opção de utilizar um nome de favorito "especial" chamado "exclude".
-Nesta opção pode-se colocar todos os canais que devem ser ignorados e, portanto,
-não irão aparecer em nenhum favorito.
-Exemplo:
-         exclude=Teste*,Sudoku,Tetrix.*,Banda C,Hab*,PVR,ISDB-T,TVEXEC,TVTEC
+Vide fórum
 
 
 ----------------------------------------------------------------------------------
