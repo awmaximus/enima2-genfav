@@ -3,9 +3,14 @@ DESCRIÇÃO
 ----------------------------------------------------------------------------------
 
 Este aplicativo gera as configurações de favoritos do Enigma2.
+
 Ele lê a base de dados de canais do enigma2 (/etc/enigma2/lamedb) e gera as
 configurações de favoritos com base em um conjunto de regras que podem ser
 facilmente personalizadas.
+
+Ele funciona tanto para quem aponta apenas para um satelite ou para vários
+satelites, de acordo com a configuração presente no aparelho (satellites.xml).
+Os favoritos são gerados para cada satelite individualmente.
 
 
 ----------------------------------------------------------------------------------
@@ -20,14 +25,34 @@ MODO DE USO
 ----------------------------------------------------------------------------------
 
 0) FAÇA BACKUP DA PASTA "/etc/enigma2"
-1) Copie o arquivo "genfav.sh" para a pasta "/home/root" no enigma2.
-2) Dê permissão de execução a este arquivo: "chmod 700 genfav2"
-3) Copie o arquivo "genfav_rules.txt" para a pasta "/etc/enigma2"
+1) Copie o arquivo "genfav.sh" para a pasta "/home/root" no enigma2 usando um
+   cliente FTP (Ex: Filezilla)
+   https://github.com/awmaximus/enima2-genfav/raw/master/genfav.sh
+2) Dê permissão de execução a este arquivo.
+   Acesse via Telnet ou SSH o enigma2 e execute o seguinte comando:
+   chmod 700 /home/root/genfav.sh
+3) Copie o arquivo "genfav_rules.txt" para a pasta "/etc/enigma2" no enigma2
+   usando um cliente FTP (Ex: Filezilla)
+   https://raw.github.com/awmaximus/enima2-genfav/master/genfav_rules.txt
 4) Na interface do enigma2 (via controle remoto), execute um scan completo de
-   canais
+   canais para cada satelite que se tenha apontamento
 5) Execute o aplicativo para que ele crie os favoritos baseados nas regras
-   contidas no arquivo "genfav_rules.txt": "/home/root/genfav.sh"
+   contidas no arquivo "genfav_rules.txt"
+   Acesse via Telnet ou SSH o enigma2 e execute o seguinte comando:
+   /home/root/genfav.sh
 
+
+Feito os procedimento acima, em caso de mudança nas TPs, faça:
+
+0) FAÇA BACKUP DA PASTA "/etc/enigma2"
+1) Efetue, se necessário, as alterações nas configurações do satellite.xml e
+   reinicie o aparelho (vide forum).
+2) Na interface do enigma2 (via controle remoto), execute um scan completo de
+   canais para cada satelite que se tenha apontamento
+3) Execute o aplicativo para que ele crie os favoritos baseados nas regras
+   contidas no arquivo "genfav_rules.txt"
+   Acesse via Telnet ou SSH o enigma e execute o seguinte comando:
+   /home/root/genfav.sh
 
 ----------------------------------------------------------------------------------
 COMO PERSONALIZAR AS REGRAS
@@ -49,7 +74,6 @@ Onde:
 separados por vírgula.
 Exemplo:
          Documentario=Animal Planet,Discovery.*,!Discovery Kids,Nat Geo Wild HD
-
 
 Pode-se usar caracteres curingas para que seja incluído vários canais ao mesmo
 tempo no favorito, sem a necessidade de informar todos os nomes.
@@ -82,11 +106,11 @@ Email: awmaximus@gmail.com
 TODO
 ----------------------------------------------------------------------------------
 
-* Incluir opção de gerar favoritos apenas do satelite informado
+* Incluir opção de gerar favoritos apenas do satelite informado, quando usado
+  lamedb gerado em outro aparelho ou por terceiros.
 * Referencia ao satelite pelo nome e não pelo número, buscando do satellite.xml
+* Permitir renomear os canais
 * Melhoria no desempenho
 * Executar scan de canais automaticamente
 * Converter o script em um Plugin do enigma2 com interface gráfica
 * Futuro redesenvolvimento em Python
-
-
